@@ -8,6 +8,8 @@ const searchBtn = document.getElementById("load-date-btn");
 const todayBtn = document.getElementById("today-apod-btn");
 let todayDate = new Date().toISOString().split("T")[0];
 if (dateInput) dateInput.value = todayDate;
+const today = new Date().toISOString().split("T")[0];
+dateInput.max = today;
 
 // ! ============================= Nav Btn =============================
 
