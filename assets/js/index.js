@@ -187,7 +187,7 @@ async function getLaunches() {
                       <span
                         class="px-4 py-1.5 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold"
                       >
-                        Go
+                        ${data.results[0].status.abbrev}
                       </span>
                     </div>
                     <h3 class="text-3xl font-bold mb-3 leading-tight">
@@ -325,7 +325,7 @@ function displayLaunches(launches) {
                   <span
                     class="px-3 py-1 bg-green-500/90 text-white backdrop-blur-sm rounded-full text-xs font-semibold"
                   >
-                    Go
+                    ${launches[i].status.abbrev}
                   </span>
                 </div>
               </div>
@@ -389,7 +389,6 @@ async function getPlants() {
     `https://solar-system-opendata-proxy.vercel.app/api/planets`,
   );
   const data = await respons.json();
-  console.log(data);
   planets = data.bodies;
   displayPlanets(data.bodies);
 
@@ -425,7 +424,6 @@ function displayPlanets(planets) {
 }
 
 function displayPlanetDetails(i) {
-  console.log(i);
 
   const planet = planets[i];
 
