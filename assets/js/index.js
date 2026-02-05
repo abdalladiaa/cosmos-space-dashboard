@@ -6,6 +6,7 @@ const imageElement = document.getElementById("apod-image");
 const loadingElement = document.getElementById("apod-loading");
 const searchBtn = document.getElementById("load-date-btn");
 const todayBtn = document.getElementById("today-apod-btn");
+let textDate = document.getElementById("selected-date");
 let todayDate = new Date().toISOString().split("T")[0];
 if (dateInput) dateInput.value = todayDate;
 const today = new Date().toISOString().split("T")[0];
@@ -104,6 +105,14 @@ getSpace(todayDate);
 
 // ! ============================= Get Dated Space =============================
 
+textDate.innerHTML = dateInput.value;
+
+function getTextDate() {
+  dateInput.addEventListener("change", () => {
+    textDate.innerHTML = dateInput.value;
+  });
+}
+getTextDate();
 if (searchBtn) {
   searchBtn.addEventListener("click", function () {
     getSpace(dateInput?.value || todayDate);
@@ -115,6 +124,8 @@ if (searchBtn) {
 if (todayBtn) {
   todayBtn.addEventListener("click", function () {
     getSpace(todayDate);
+    dateInput.value = todayDate;
+    textDate.innerHTML = dateInput.value;
   });
 }
 
